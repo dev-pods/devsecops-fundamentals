@@ -1,7 +1,7 @@
 ---
 edit_uri: edit/main/docs/
 
-site_url: https://gh-devsecops.github.io/fundamentals
+site_url: https://dev-pods.github.io/devsecops-fundamentals
 site_name: GitHub DevSecOps Fundamentals
 site_author: Igwe Kalu <igwejk@github.com>
 site_description: GitHub DevSecOps Fundamentals | Workshop
@@ -9,7 +9,7 @@ site_description: GitHub DevSecOps Fundamentals | Workshop
 remote_name: origin
 remote_branch: gh-pages
 
-repo_url: https://github.com/gh-devsecops/fundamentals/
+repo_url: https://github.com/dev-pods/devsecops-fundamentals/
 repo_name: GitHub Repository
 
 theme:
