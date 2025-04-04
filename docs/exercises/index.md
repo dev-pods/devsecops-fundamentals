@@ -21,10 +21,7 @@ Você está trabalhando em uma equipe que é proprietária **_deste_** site, e u
 
 > _...o objetivo é criar um **Jogo de Tetris** para encantar os visitantes do nosso site._
 
-<figure markdown>
-    ![Jogo de Tetris](../assets/img/tetris-game.png){ loading=lazy }
-    <figcaption>Resultado: Jogo de Tetris</figcaption>
-</figure>
+![Tetris Game](../assets/img/tetris-game.png)
 
 ---
 

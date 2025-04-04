@@ -35,7 +35,7 @@ Você pode criar uma nova conta GitHub, se ainda não tiver uma. (1)
             - [Uso gratuito dos minutos do GitHub Actions](https://docs.github.com/pt/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
             - [Uso gratuito dos recursos do GitHub Advanced Security](https://docs.github.com/pt/get-started/learning-about-github/about-github-advanced-security#about-advanced-security-features).
 
-      - Role para baixo e clique no botão <span class="gh-button-green">Criar repositório</span> na parte inferior do formulário.
+      - Role para baixo e clique no botão <span class="gh-button-green">Create repository</span> na parte inferior do formulário.
 
         ??? info "Expanda para visualizar exemplo..."
 
@@ -50,9 +50,9 @@ Você pode criar uma nova conta GitHub, se ainda não tiver uma. (1)
 ## :material-numeric-3-circle: :octicons-feed-discussion-16: **Habilitar Discussões**
 
 1. No GitHub.com, navegue até a página principal do seu novo repositório.
-1. Abaixo do nome do repositório, clique em :octicons-gear-16: **Configurações**.
+1. Abaixo do nome do repositório, clique em :octicons-gear-16: **Settings**.
     ![Aba de configurações do repositório](./assets/img/repository-settings-tab.png)
-1. Role para baixo até a seção "Recursos" e clique em <span class="gh-button-green">Configurar discussões</span>
+1. Role para baixo até a seção "Set up discussions" e clique em <span class="gh-button-green">Set up Discussions</span>
 
 <br />
 
@@ -61,7 +61,7 @@ Você pode criar uma nova conta GitHub, se ainda não tiver uma. (1)
 ## :material-numeric-4-circle: :material-security:{ .lg .middle } **Configurar segurança básica**
 
 1. Navegue até a aba :octicons-gear-16: **Configurações** no seu novo repositório do workshop.
-1. Na seção "**Segurança**" do menu, selecione :octicons-codescan-16: **Segurança e análise de código**. Em seguida, configure as configurações para corresponder conforme a seguir (clicando em <span class="gh-repo-settings-button">Habilitar</span> onde a opção estiver/se tornar disponível).
+1. Na seção "**Segurança**" do menu, selecione :octicons-codescan-16: **Advanced Security**. Em seguida, configure as configurações para corresponder conforme a seguir (clicando em <span class="gh-repo-settings-button">Enable</span> onde a opção estiver/se tornar disponível).
 
     !!! note "Guia para configurações adicionais..."
 
@@ -85,32 +85,32 @@ Você pode criar uma nova conta GitHub, se ainda não tiver uma. (1)
 ## :material-numeric-5-circle: :octicons-dependabot-16:{ .lg .middle } **Registrar um aplicativo GitHub**
 
 1. No canto superior direito de qualquer página no GitHub, clique na sua foto de perfil.
-1. Navegue até as suas **:octicons-gear-16: Configurações** da conta.
-1. Na barra lateral esquerda, clique em **:octicons-code-16: Configurações do desenvolvedor**.
-1. Na barra lateral esquerda, clique em **:octicons-apps-16: Aplicativos GitHub**
+1. Navegue até as suas **:octicons-gear-16: Settings** da conta.
+1. Na barra lateral esquerda, clique em **:octicons-code-16: Developer settings**.
+1. Na barra lateral esquerda, clique em **:octicons-apps-16: GitHub Apps**
 1. Clique em **Novo aplicativo GitHub**
 
     !!! note "Forneça os valores dos campos do formulário da seguinte forma"
 
         ```text
-        Nome do aplicativo GitHub..: <SEU-HANDLE>-bot
+        GitHub App name..: <SEU-HANDLE>-bot
 
-        URL da página inicial......: https://github.com/<SEU-HANDLE>/github-devsecops-fundamentals
+        Homepage URL......: https://github.com/<SEU-HANDLE>/github-devsecops-fundamentals
 
         Webhook
-          Ativo...................: DESMARCAR
+          Active...................: DESMARCAR
 
         Permissões do repositório
-          Actions.................: Leitura e escrita
-          Administração..........: Leitura e escrita
-          Conteúdos..............: Leitura e escrita
-          Implantações...........: Leitura e escrita
-          Discussões.............: Leitura e escrita
-          Ambientes..............: Leitura e escrita
-          Páginas................: Leitura e escrita
+          Actions...............: Read and write
+          Administration........: Read and write
+          Contents..............: Read and write
+          Deployments...........: Read and write
+          Discussions...........: Read and write
+          Environments..........: Read and write
+          Pages.................: Read and write
 
         Onde este aplicativo GitHub pode ser instalado?
-          Qualquer conta.................: SELECIONAR
+          Any account .................: SELECIONAR
         ```
 
 1. Gere uma chave privada para o novo aplicativo GitHub conforme documentado em [**:eyes: aqui**](https://docs.github.com/pt/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps#generating-private-keys){ target="\_blank" }.
@@ -151,14 +151,12 @@ Você pode criar uma nova conta GitHub, se ainda não tiver uma. (1)
 
 1. Abra o repositório do workshop recém-criado.
 
-2. Navegue até a guia :octicons-project-template-16: **Projetos**.
+2. Navegue até a guia :octicons-project-template-16: **Projects**.
 
-3. Abra o menu suspenso <span class="gh-button-green">Vincular um projeto <span class="gh-button-green-with-dropdown">:material-menu-down:</span></span>. Em seguida, selecione a opção **Novo projeto**.
-
-4. Clique no botão <span class="gh-button-green">Novo projeto <span class="gh-button-green-with-dropdown">:material-menu-down:</span></span> para iniciar o assistente de criação de projeto.
-5. Selecione o modelo :octicons-people-16: **Backlog da equipe**.
+3. Clique no botão <span class="gh-button-green">New Project <span class="gh-button-green-with-dropdown">:material-menu-down:</span></span> para iniciar o assistente de criação de projeto.
+5. Selecione o modelo :octicons-people-16: **Kanban**.
 6. Dê um nome ao projeto
-7. Finalmente, clique no botão <span class="gh-button-green">Criar</span>.
+7. Finalmente, clique no botão <span class="gh-button-green">Create project</span>.
 
 <br />
 
@@ -170,7 +168,7 @@ O GitHub Codespaces permite que você comece a codificar instantaneamente no pro
 
 1. Navegue até a guia :octicons-code-16: **Código**.
 
-2. Abra o menu <span class="gh-button-green">:octicons-code-16: Código :material-menu-down:</span> e clique em :material-cursor-default-click: <span class="gh-button-green">Criar codespaces em main</span>.
+2. Abra o menu <span class="gh-button-green">:octicons-code-16: Code :material-menu-down:</span> e clique em :material-cursor-default-click: <span class="gh-button-green">Create codespaces on main</span>.
 
     ??? info "Expanda para visualização de exemplo..."
         ![Criar um novo GitHub Codespaces](./assets/img/create-a-new-codespaces.png){ style="height: 40em"}
