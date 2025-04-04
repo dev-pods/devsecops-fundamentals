@@ -1,14 +1,14 @@
-# :test_tube: Collaborate
+# :test_tube: Colaborar
 
-!!! quote "Continuous Collaboration"
+!!! quote "Colaboração Contínua"
 
-    Continuous collaboration enables working together across technical and cultural boundaries as a unified team, reducing frictions and increasing the velocity to accomplish common goals.
+    A colaboração contínua permite trabalhar juntos através de fronteiras técnicas e culturais como uma equipe unificada, reduzindo atritos e aumentando a velocidade para atingir objetivos comuns.
 
-    ## :octicons-goal-16:{ style="color: pink" } Objectives
+    ## :octicons-goal-16:{ style="color: pink" } Objetivos
 
-    Behaviors that enable addressing the challenge include
+    Comportamentos que permitem enfrentar o desafio incluem:
 
-    - [x] Facilitate tracking of business goal delivery
-    - [x] Enable rapid onboarding to project development
-    - [x] Provide a standardized validation of work done
-    - [x] Enable collaborative validation of done requirement
+    - [x] Facilitar o rastreamento da entrega de objetivos de negócio
+    - [x] Permitir integração rápida ao desenvolvimento do projeto
+    - [x] Fornecer uma validação padronizada do trabalho realizado
+    - [x] Permitir validação colaborativa dos requisitos concluídos

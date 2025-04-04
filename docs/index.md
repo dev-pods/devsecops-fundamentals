@@ -1,37 +1,37 @@
-# :octicons-mark-github-16: GitHub DevSecOps Fundamentals | Workshop
+# :octicons-mark-github-16: GitHub DevSecOps Fundamentos | Workshop
 
 <!-- markdownlint-disable MD033 -->
 
-This self-paced workshop will enable you acquire the capabilities to implement a DevSecOps mindset, leveraging the GitHub platform for a seamless developer experience.
+Este workshop autoguiado permitirá que você adquira as capacidades necessárias para implementar uma mentalidade DevSecOps, aproveitando a plataforma GitHub para uma experiência de desenvolvedor sem complicações.
 
 <figure markdown style="background-color: #777; padding: 1em; border-radius: 0.25em; color: var(--md-primary-fg-color);">
 ![GitHub Platform](assets/img/e2e-github.png){ loading=lazy }
-<figcaption style="font-weight: bold; font-style: normal;">GitHub Platform</figcaption>
+<figcaption style="font-weight: bold; font-style: normal;">Plataforma GitHub</figcaption>
 </figure>
 
 !!! quote ""
 
-    ## :octicons-goal-16:{ style="color: pink" } Learning Objectives
+    ## :octicons-goal-16:{ style="color: pink" } Objetivos de Aprendizagem
 
-    - [x] Collaborate effectively for high-velocity productivity
-    - [x] Apply preventive security to every aspect of the development process
-    - [x] Implement a secure software supply chain
-    - [x] Automate product release and business processes in general
-    - [x] Remove complications due to tool-bloat
+    - [x] Colaborar de forma eficaz para alta produtividade
+    - [x] Aplicar segurança preventiva em todos os aspectos do processo de desenvolvimento
+    - [x] Implementar uma cadeia de suprimentos de software segura
+    - [x] Automatizar o lançamento de produtos e processos de negócios em geral
+    - [x] Eliminar complicações devido ao excesso de ferramentas
 
     <br />
-    [:material-cursor-default-click: Complete the **:footprints: Prerequisites** checklist!](./prerequisites.md){ .md-button .md-button--primary }
+    [:material-cursor-default-click: Complete a lista de verificação de **:footprints: Pré-requisitos**!](./prerequisites.md){ .md-button .md-button--primary }
 
-    ## 📚 Resources
+    ## 📚 Recursos
 
-    !!! quote inline end "Get expert workshop facilitation..."
+    !!! quote inline end "Obtenha facilitação especializada do workshop..."
 
-        This publicly available workshop is limited to enable you learn with accompanying research. It does not address concepts at an enterprise-scope.
+        Este workshop disponível publicamente é limitado para permitir que você aprenda com a pesquisa que o acompanha. Ele não aborda conceitos em escala empresarial.
 
-        Contact 📧 services@github.com to benefit more from a workshop facilitation by GitHub's [**expert services**](https://github.com/services/) to support advancement of DevSecOps implementation in your organisation.
+        Entre em contato 📧 services@github.com para se beneficiar mais de uma facilitação de workshop pelos [**serviços especializados**](https://github.com/services/) do GitHub para apoiar o avanço da implementação de DevSecOps na sua organização.
 
-    - [Project planning for developers](https://github.com/features/issues)
-    - [Start coding instantly with Codespaces](https://github.com/features/codespaces)
-    - [Automate your workflow from idea to production](https://github.com/features/actions)
-    - [Secure at every step](https://github.com/features/security)
-    - [Your packages, at home with their code](https://github.com/features/packages)
+    - [Planejamento de projetos para desenvolvedores](https://github.com/features/issues)
+    - [Comece a programar instantaneamente com Codespaces](https://github.com/features/codespaces)
+    - [Automatize seu fluxo de trabalho da ideia à produção](https://github.com/features/actions)
+    - [Segurança em cada etapa](https://github.com/features/security)
+    - [Seus pacotes, em casa com seu código](https://github.com/features/packages)

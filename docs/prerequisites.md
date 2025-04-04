@@ -1,183 +1,183 @@
-# :footprints: Prerequisites
+# :footprints: Pré-requisitos
 
 <!-- markdownlint-disable MD033 -->
 
-!!! tip "Prepare before the workshop"
+!!! tip "Prepare-se antes do workshop"
 
-    To ensure a seamless workshop experience, complete the following checklist items in order.
+    Para garantir uma experiência sem problemas no workshop, complete os itens da lista de verificação na ordem.
 
-## :material-numeric-1-circle: :fontawesome-brands-github-alt:{ .lg .middle } **Set up a GitHub account**
+## :material-numeric-1-circle: :fontawesome-brands-github-alt:{ .lg .middle } **Configure uma conta GitHub**
 
-Login to your GitHub account.
+Faça login na sua conta GitHub.
 
-You may create a new GitHub account, if you do not already have one. (1)
+Você pode criar uma nova conta GitHub, se ainda não tiver uma. (1)
 { .annotate }
 
-1. :bulb: Clicking the button below will open the page on a new tab, for you to create a new GitHub account. Keep your **`@handle`** handy after you have logged in.
+1. :bulb: Clicar no botão abaixo abrirá a página em uma nova aba, para você criar uma nova conta GitHub. Mantenha seu **`@handle`** (nome de usuário) à mão depois de fazer login.
 
-[:material-cursor-default-click: Create a new GitHub account](https://github.com/signup){.md-button target="\_blank"}
+[:material-cursor-default-click: Criar uma nova conta GitHub](https://github.com/signup){.md-button target="\_blank"}
 
 <br />
 
 ---
 
-## :material-numeric-2-circle: :material-source-repository-multiple:{ .lg .middle } **Clone the workshop project to your own account**
+## :material-numeric-2-circle: :material-source-repository-multiple:{ .lg .middle } **Clone o projeto do workshop para sua própria conta**
 
-1. [:material-cursor-default-click: Create workshop project](https://github.com/new?template_owner=dev-pods&template_name=devsecops-fundamentals&owner=%40me&name=github-devsecops-fundamentals&description=GitHub+DevSecOps+Fundamentals&visibility=public){.md-button target="\_blank"}
-1. In the new tab, most of the prompts will automatically fill in for you and the default settings should be fine. Otherwise...
+1. [:material-cursor-default-click: Criar projeto do workshop](https://github.com/new?template_owner=dev-pods&template_name=devsecops-fundamentals&owner=%40me&name=github-devsecops-fundamentals&description=GitHub+DevSecOps+Fundamentals&visibility=public){.md-button target="\_blank"}
+1. Na nova aba, a maioria dos campos será preenchida automaticamente e as configurações padrão devem estar corretas. Caso contrário...
 
-      - For owner, choose your personal account or.
-      - We recommend creating a public repository. (1)
+      - Para proprietário, escolha sua conta pessoal.
+      - Recomendamos criar um repositório público. (1)
         { .annotate }
 
-        1. :bulb: Public repositories benefit from
+        1. :bulb: Repositórios públicos se beneficiam de
 
-            - [Free use of GitHub Actions minutes](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
-            - [Free use of GitHub Advanced Security features](https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security#about-advanced-security-features).
+            - [Uso gratuito dos minutos do GitHub Actions](https://docs.github.com/pt/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
+            - [Uso gratuito dos recursos do GitHub Advanced Security](https://docs.github.com/pt/get-started/learning-about-github/about-github-advanced-security#about-advanced-security-features).
 
-      - Scroll down and click the <span class="gh-button-green">Create repository</span> button at the bottom of the form.
+      - Role para baixo e clique no botão <span class="gh-button-green">Criar repositório</span> na parte inferior do formulário.
 
-        ??? info "Expand for sample view..."
+        ??? info "Expanda para visualizar exemplo..."
 
-            ![Create a new repository from a template](./assets/img/create-a-new-repository.png)
+            ![Criar um novo repositório a partir de um modelo](./assets/img/create-a-new-repository.png)
 
-1. After creation of your new repository has begun, wait about 20 seconds, then refresh the page.
-
-<br />
-
----
-
-## :material-numeric-3-circle: :octicons-feed-discussion-16: **Enable Discussions**
-
-1. On GitHub.com, navigate to the main page of your new repository.
-1. Under your repository name, click :octicons-gear-16: **Settings**.
-    ![Repository settings tab](./assets/img/repository-settings-tab.png)
-1. Scroll down to the "Features" section and click <span class="gh-button-green">Set up discussions<span>
+1. Depois que a criação do seu novo repositório começar, aguarde cerca de 20 segundos e depois atualize a página.
 
 <br />
 
 ---
 
-## :material-numeric-4-circle: :material-security:{ .lg .middle } **Configure base security**
+## :material-numeric-3-circle: :octicons-feed-discussion-16: **Habilitar Discussões**
 
-1. Navigate to the :octicons-gear-16: **Settings** tab on your new workshop repository.
-1. Under the "**Security**" section of the menu, select :octicons-codescan-16: **Code security and analysis**. Then configure the settings to match as follows (by clicking <span class="gh-repo-settings-button">Enable</span> where the option is/becomes available).
-
-    !!! note "Further configurations guide..."
-
-        - **Dependabot version updates**
-
-              When enabling, you will be prompted to edit the `.github/dependabot.yml` configuration file. Simply **navigate back** on your browser or click on <span class="gh-button-grey">Cancel changes</span> to leave the prompt, and to continue the base security configuration.
-        - **CodeQL analysis**
-
-              1. From the <span class="gh-button-grey">Set up</span>, select the Default option.
-                  ![Show CodeQL analysis setup](./assets/img/codeql-analysis-setup.png)
-              1. Leave the default settings in the prompt that follows, and simply click on <span class="gh-button-green">Enable CodeQL</span> to continue.
-        - **Protection rules**
-
-              Select the configuration as shown below.
-              ![Show CodeQL protection rules](./assets/img/codeql-protection-rules-setup.png)
+1. No GitHub.com, navegue até a página principal do seu novo repositório.
+1. Abaixo do nome do repositório, clique em :octicons-gear-16: **Configurações**.
+    ![Aba de configurações do repositório](./assets/img/repository-settings-tab.png)
+1. Role para baixo até a seção "Recursos" e clique em <span class="gh-button-green">Configurar discussões</span>
 
 <br />
 
 ---
 
-## :material-numeric-5-circle: :octicons-dependabot-16:{ .lg .middle } **Register a GitHub App**
+## :material-numeric-4-circle: :material-security:{ .lg .middle } **Configurar segurança básica**
 
-1. In the upper-right corner of any page on GitHub, click your profile photo.
-1. Navigate to your account **:octicons-gear-16: Settings**.
-1. In the left sidebar, click **:octicons-code-16: Developer settings**.
-1. In the left sidebar, click **:octicons-apps-16: GitHub Apps**
-1. Click **New GitHub App**
+1. Navegue até a aba :octicons-gear-16: **Configurações** no seu novo repositório do workshop.
+1. Na seção "**Segurança**" do menu, selecione :octicons-codescan-16: **Segurança e análise de código**. Em seguida, configure as configurações para corresponder conforme a seguir (clicando em <span class="gh-repo-settings-button">Habilitar</span> onde a opção estiver/se tornar disponível).
 
-    !!! note "Provide the form fields value as follows"
+    !!! note "Guia para configurações adicionais..."
+
+        - **Atualizações de versão do Dependabot**
+
+              Ao habilitar, você será solicitado a editar o arquivo de configuração `.github/dependabot.yml`. Simplesmente **navegue de volta** no seu navegador ou clique em <span class="gh-button-grey">Cancelar alterações</span> para sair do prompt e continuar a configuração de segurança básica.
+        - **Análise CodeQL**
+
+              1. A partir de <span class="gh-button-grey">Configurar</span>, selecione a opção Padrão.
+                  ![Mostrar configuração de análise CodeQL](./assets/img/codeql-analysis-setup.png)
+              1. Deixe as configurações padrão no prompt que segue e simplesmente clique em <span class="gh-button-green">Habilitar CodeQL</span> para continuar.
+        - **Regras de proteção**
+
+              Selecione a configuração conforme mostrado abaixo.
+              ![Mostrar regras de proteção CodeQL](./assets/img/codeql-protection-rules-setup.png)
+
+<br />
+
+---
+
+## :material-numeric-5-circle: :octicons-dependabot-16:{ .lg .middle } **Registrar um aplicativo GitHub**
+
+1. No canto superior direito de qualquer página no GitHub, clique na sua foto de perfil.
+1. Navegue até as suas **:octicons-gear-16: Configurações** da conta.
+1. Na barra lateral esquerda, clique em **:octicons-code-16: Configurações do desenvolvedor**.
+1. Na barra lateral esquerda, clique em **:octicons-apps-16: Aplicativos GitHub**
+1. Clique em **Novo aplicativo GitHub**
+
+    !!! note "Forneça os valores dos campos do formulário da seguinte forma"
 
         ```text
-        GitHub App Name..........: <YOUR-HANDLE>-bot
+        Nome do aplicativo GitHub..: <SEU-HANDLE>-bot
 
-        Homepage URL.............: https://github.com/<YOUR-HANDLE>/github-devsecops-fundamentals
+        URL da página inicial......: https://github.com/<SEU-HANDLE>/github-devsecops-fundamentals
 
         Webhook
-          Active.................: DESELECT
+          Ativo...................: DESMARCAR
 
-        Repository permissions
-          Actions................: Read and write
-          Administration.........: Read and write
-          Contents...............: Read and write
-          Deployments............: Read and write
-          Discussions............: Read and write
-          Environments...........: Read and write
-          Pages..................: Read and write
+        Permissões do repositório
+          Actions.................: Leitura e escrita
+          Administração..........: Leitura e escrita
+          Conteúdos..............: Leitura e escrita
+          Implantações...........: Leitura e escrita
+          Discussões.............: Leitura e escrita
+          Ambientes..............: Leitura e escrita
+          Páginas................: Leitura e escrita
 
-        Where can this GitHub App be installed?
-          Any account.................: SELECT
+        Onde este aplicativo GitHub pode ser instalado?
+          Qualquer conta.................: SELECIONAR
         ```
 
-1. Generate a private key for the new GitHub App as documented in [**:eyes: here**](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps#generating-private-keys){ target="\_blank" }.
-1. Save the GitHub App private key to your new repository's secrets under the name of `APP_PRIVATE_KEY_ACTIONS_ASSISTANT`.
+1. Gere uma chave privada para o novo aplicativo GitHub conforme documentado em [**:eyes: aqui**](https://docs.github.com/pt/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps#generating-private-keys){ target="\_blank" }.
+1. Salve a chave privada do aplicativo GitHub nos segredos do seu novo repositório com o nome `APP_PRIVATE_KEY_ACTIONS_ASSISTANT`.
 
-    👀 [**Creating secrets for a repository**](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository).
+    👀 [**Criando segredos para um repositório**](https://docs.github.com/pt/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository).
 
-1. Save the GitHub App's `appid` to your new repository's variables under the name of `APP_ID_ACTIONS_ASSISTANT`.
+1. Salve o `appid` do aplicativo GitHub nas variáveis do seu novo repositório com o nome `APP_ID_ACTIONS_ASSISTANT`.
 
-    👀 [**Creating configuration variables for a repository**](https://docs.github.com/en/actions/learn-github-actions/variables#creating-configuration-variables-for-a-repository)
+    👀 [**Criando variáveis de configuração para um repositório**](https://docs.github.com/pt/actions/learn-github-actions/variables#creating-configuration-variables-for-a-repository)
 
-1. Goto `https://github.com/apps/<YOUR-HANDLE>-bot`. Install the app in the repository you created earlier.
+1. Acesse `https://github.com/apps/<SEU-HANDLE>-bot`. Instale o aplicativo no repositório que você criou anteriormente.
 
-    ??? info "Expand for additional guide and sample views..."
+    ??? info "Expanda para guia adicional e visualizações de exemplo..."
 
-        1. ![Show app home](./assets/img/app-home-display.png){ style="width: 25em;" }
-        1. ![Show resource owner selection](./assets/img/app-owner-selection.png){ style="width: 25em;" }
-        1. ![Show selection of repository and install](./assets/img/app-destination-repository-selection.png){ style="width: 25em;" }
-        1. ![Show notification of successful installation](./assets/img/app-installation-success-notification.png){ style="width: 25em;" }
+        1. ![Mostrar página inicial do aplicativo](./assets/img/app-home-display.png){ style="width: 25em;" }
+        1. ![Mostrar seleção de proprietário do recurso](./assets/img/app-owner-selection.png){ style="width: 25em;" }
+        1. ![Mostrar seleção de repositório e instalação](./assets/img/app-destination-repository-selection.png){ style="width: 25em;" }
+        1. ![Mostrar notificação de instalação bem-sucedida](./assets/img/app-installation-success-notification.png){ style="width: 25em;" }
 
-!!! question "What is the use of a GitHub App?"
+!!! question "Para que serve um aplicativo GitHub?"
 
-    > _When you use the repository's `GITHUB_TOKEN` to perform tasks, events triggered by the `GITHUB_TOKEN`, with the exception of `workflow_dispatch` and `repository_dispatch`, will not create a new workflow run. This prevents you from accidentally creating recursive workflow runs. For example, if a workflow run pushes code using the repository's `GITHUB_TOKEN`, a new workflow will not run even when the repository contains a workflow configured to run when push events occur._
+    > _Quando você usa o `GITHUB_TOKEN` do repositório para realizar tarefas, os eventos acionados pelo `GITHUB_TOKEN`, com exceção de `workflow_dispatch` e `repository_dispatch`, não criarão uma nova execução de fluxo de trabalho. Isso evita que você crie acidentalmente execuções de fluxo de trabalho recursivas. Por exemplo, se uma execução de fluxo de trabalho envia código usando o `GITHUB_TOKEN` do repositório, um novo fluxo de trabalho não será executado mesmo quando o repositório contiver um fluxo de trabalho configurado para ser executado quando ocorrerem eventos de push._
     >
-    > _If you do want to trigger a workflow from within a workflow run, you can use a GitHub App installation access token or a personal access token instead of `GITHUB_TOKEN` to trigger events that require a token._
+    > _Se você quiser acionar um fluxo de trabalho a partir de uma execução de fluxo de trabalho, poderá usar um token de acesso de instalação do aplicativo GitHub ou um token de acesso pessoal em vez do `GITHUB_TOKEN` para acionar eventos que exigem um token._
     >
-    > _If you use a GitHub App, you'll need to create a GitHub App and store the app ID and private key as secrets._
+    > _Se você usar um aplicativo GitHub, precisará criar um aplicativo GitHub e armazenar o ID do aplicativo e a chave privada como segredos._
     >
-    > ~ [Triggering a workflow from a workflow](https://docs.github.com/en/actions/using-workflows/triggering-a-workflow#triggering-a-workflow-from-a-workflow)
+    > ~ [Acionando um fluxo de trabalho a partir de um fluxo de trabalho](https://docs.github.com/pt/actions/using-workflows/triggering-a-workflow#triggering-a-workflow-from-a-workflow)
 
-    During the course of the workshop exercises, you will discover how the GitHub App is used to trigger the automatic deployment of release artifacts.
+    Durante os exercícios do workshop, você descobrirá como o aplicativo GitHub é usado para acionar a implantação automática de artefatos de lançamento.
 
 <br />
 
 ---
 
-## :material-numeric-6-circle: :octicons-project-16:{ .lg .middle } **Create a project board for the repository**
+## :material-numeric-6-circle: :octicons-project-16:{ .lg .middle } **Criar um quadro de projeto para o repositório**
 
-1. Open the recently created workshop repository.
+1. Abra o repositório do workshop recém-criado.
 
-2. Navigate to the :octicons-project-template-16: **Projects** tab.
+2. Navegue até a guia :octicons-project-template-16: **Projetos**.
 
-3. Open the <span class="gh-button-green">Link a project <span class="gh-button-green-with-dropdown">:material-menu-down:</span></span> {== dropdown menu ==}. Then select the **New Project** option.
+3. Abra o menu suspenso <span class="gh-button-green">Vincular um projeto <span class="gh-button-green-with-dropdown">:material-menu-down:</span></span>. Em seguida, selecione a opção **Novo projeto**.
 
-4. Click on the <span class="gh-button-green">New project <span class="gh-button-green-with-dropdown">:material-menu-down:</span></span> {== button ==} to start the project creation wizard.
-5. Select the :octicons-people-16: **Team backlog** template.
-6. Give a name to the project
-7. Finally click on the <span class="gh-button-green">Create</span> button.
+4. Clique no botão <span class="gh-button-green">Novo projeto <span class="gh-button-green-with-dropdown">:material-menu-down:</span></span> para iniciar o assistente de criação de projeto.
+5. Selecione o modelo :octicons-people-16: **Backlog da equipe**.
+6. Dê um nome ao projeto
+7. Finalmente, clique no botão <span class="gh-button-green">Criar</span>.
 
 <br />
 
 ---
 
-## :material-numeric-7-circle: :octicons-codespaces-16: **Provision a new cloud development environment for the workshop**
+## :material-numeric-7-circle: :octicons-codespaces-16: **Provisionar um novo ambiente de desenvolvimento em nuvem para o workshop**
 
-GitHub Codespaces enables you to instantly start coding on the workshop project. Personal accounts on GitHub can benefit from a [free quota of GitHub Codespaces usage](https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
+O GitHub Codespaces permite que você comece a codificar instantaneamente no projeto do workshop. Contas pessoais no GitHub podem se beneficiar de uma [cota gratuita de uso do GitHub Codespaces](https://docs.github.com/pt/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
-1. Navigate to the :octicons-code-16: **Code** tab.
+1. Navegue até a guia :octicons-code-16: **Código**.
 
-2. Open the <span class="gh-button-green">:octicons-code-16: Code :material-menu-down:</span> menu and click on :material-cursor-default-click: <span class="gh-button-green">Create codespaces on main</span>.
+2. Abra o menu <span class="gh-button-green">:octicons-code-16: Código :material-menu-down:</span> e clique em :material-cursor-default-click: <span class="gh-button-green">Criar codespaces em main</span>.
 
-    ??? info "Expand for sample view..."
-        ![Create a new GitHub Codespaces](./assets/img/create-a-new-codespaces.png){ style="height: 40em"}
+    ??? info "Expanda para visualização de exemplo..."
+        ![Criar um novo GitHub Codespaces](./assets/img/create-a-new-codespaces.png){ style="height: 40em"}
 
 3. {==
 
-    **Leave the Codespace development environment to initialize and run, we will come back to use it later.**
+    **Deixe o ambiente de desenvolvimento Codespace inicializar e ser executado, voltaremos a usá-lo mais tarde.**
 
    ==}
 

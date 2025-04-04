@@ -1,16 +1,16 @@
 ---
-edit_uri: edit/main/docs/
+edit_uri: edit/main/docs-pt/
 
 site_url: https://dev-pods.github.io/devsecops-fundamentals
-site_name: GitHub DevSecOps Fundamentals
+site_name: GitHub DevSecOps Fundamentos
 site_author: Igwe Kalu <igwejk@github.com>
-site_description: GitHub DevSecOps Fundamentals | Workshop
+site_description: GitHub DevSecOps Fundamentos | Workshop
 
 remote_name: origin
 remote_branch: gh-pages
 
 repo_url: https://github.com/dev-pods/devsecops-fundamentals/
-repo_name: GitHub Repository
+repo_name: Repositório GitHub
 
 theme:
   name: material
@@ -24,27 +24,27 @@ theme:
 
   favicon: assets/img/favicon.ico
 
-  locale: en
+  locale: pt_BR
 
   palette:
     # Palette toggle for automatic mode
     - toggle:
         icon: material/brightness-auto
-        name: Switch to dark mode
+        name: Mudar para modo escuro
       media: "(prefers-color-scheme)"
 
     # Palette toggle for light mode
     - scheme: default
       toggle:
         icon: material/brightness-7
-        name: Switch to system preference
+        name: Mudar para preferência do sistema
       media: "(prefers-color-scheme: light)"
 
     # Palette toggle for dark mode
     - scheme: slate
       toggle:
         icon: material/brightness-4
-        name: Switch to light mode
+        name: Mudar para modo claro
       media: "(prefers-color-scheme: dark)"
 
   features:
@@ -60,7 +60,8 @@ theme:
     - navigation.tabs
 
 plugins:
-  - search
+  - search:
+      lang: pt
 
   - minify:
       minify_html: true
@@ -134,9 +135,6 @@ copyright: >-
   <a href="https://github.com/services" target="_blank" style="font-weight: bold;">
     GitHub Expert Services
   </a>
-analytics:
-  provider: google
-  property: G-9K62V7QM43
 
 extra_javascript:
   - assets/javascripts/extra.js
@@ -153,22 +151,21 @@ extra_css:
   - assets/stylesheets/extra.css
 
 nav:
-  - Home: index.md
-  - Prerequisites: prerequisites.md
-  - Exercises:
-      - Introduction: exercises/index.md
-      - Collaborate:
+  - Início: index.md
+  - Pré-requisitos: prerequisites.md
+  - Exercícios:
+      - Introdução: exercises/index.md
+      - Colaborar:
           - exercises/01.collaborate/index.md
-          - Project Management: exercises/01.collaborate/01.md
-          - Implement Features: exercises/01.collaborate/02.md
-      - Secure the Software Supply Chain:
+          - Gerenciamento de Projetos: exercises/01.collaborate/01.md
+          - Implementar Recursos: exercises/01.collaborate/02.md
+      - Proteger a Cadeia de Suprimentos de Software:
           - exercises/02.secure.the.software.supply.chain/index.md
-          - Dependency Review: exercises/02.secure.the.software.supply.chain/01.md
-          - Versioning: exercises/02.secure.the.software.supply.chain/02.md
-      - Automate Release:
+          - Revisão de Dependências: exercises/02.secure.the.software.supply.chain/01.md
+          - Versionamento: exercises/02.secure.the.software.supply.chain/02.md
+      - Automatizar Lançamento:
           - exercises/03.automate.release/index.md
-          - Release Version: exercises/03.automate.release/01.md
-          - Continuous Deployment: exercises/03.automate.release/02.md
-      - ✨ Recap:
+          - Versão de Lançamento: exercises/03.automate.release/01.md
+          - Implantação Contínua: exercises/03.automate.release/02.md
+      - ✨ Recapitulação:
           - exercises/recap/index.md
-  - Tetris Game: tetris.game/index.html

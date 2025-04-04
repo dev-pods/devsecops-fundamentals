@@ -1,14 +1,14 @@
-# :test_tube: Secure the Software Supply Chain
+# :test_tube: Proteger a Cadeia de Suprimentos de Software
 
-!!! quote "Continuous Delivery and Secure Supply Chain"
+!!! quote "Entrega Contínua e Cadeia de Suprimentos Segura"
 
-    Supply chain security is integral to continuous delivery. With the accelerated use of open source, most projects depend on hundreds of open-source dependencies. This poses a security problem: what if the dependencies you're using are vulnerable? You could be putting your users at risk of a supply chain attack. One of the most important things you can do to protect your supply chain is to patch your vulnerable dependencies and replace any malware.
+    A segurança da cadeia de suprimentos é parte integral da entrega contínua. Com o uso acelerado de código aberto, a maioria dos projetos depende de centenas de dependências de código aberto. Isso representa um problema de segurança: e se as dependências que você está usando forem vulneráveis? Você poderia estar colocando seus usuários em risco de um ataque à cadeia de suprimentos. Uma das coisas mais importantes que você pode fazer para proteger sua cadeia de suprimentos é corrigir suas dependências vulneráveis e substituir qualquer malware.
 
-    Building on the progress from previous exercises, we will apply supply chain security and continuously deliver the product by fulfilling the following objectives.
+    Com base no progresso dos exercícios anteriores, aplicaremos segurança na cadeia de suprimentos e entregaremos continuamente o produto cumprindo os seguintes objetivos.
 
-    ## :octicons-goal-16:{ style="color: pink" } Objectives
+    ## :octicons-goal-16:{ style="color: pink" } Objetivos
 
-    - [x] Create Integration **Checks** for the `Tetris` app using GitHub Actions.
-    - [x] Create a Continuous Delivery workflow for the `Tetris` app using GitHub Actions.
-    - [x] Create a new release `tag` for the `Tetris` app using GitHub Actions.
-    - [x] Create a Compliance using CodeQL, Dependency Review, and Dependabot.
+    - [x] Criar **Verificações** de Integração para o aplicativo `Tetris` usando GitHub Actions.
+    - [x] Criar um fluxo de trabalho de Entrega Contínua para o aplicativo `Tetris` usando GitHub Actions.
+    - [x] Criar uma nova `tag` de lançamento para o aplicativo `Tetris` usando GitHub Actions.
+    - [x] Criar Conformidade usando CodeQL, Revisão de Dependências e Dependabot.

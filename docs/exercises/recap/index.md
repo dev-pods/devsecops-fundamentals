@@ -1,13 +1,13 @@
-# :test_tube: Review of Workshop Outcomes
+# :test_tube: Revisão dos Resultados do Workshop
 
-![Show all covered milestones](../../assets/img/milestones-all.png)
+![Mostrar todos os marcos cobertos](../../assets/img/milestones-all.png)
 
-So far, we have reached the following milestones, learning to
+Até agora, alcançamos os seguintes marcos, aprendendo a:
 
-- [x] Track work on GitHub
-- [x] Rapidly onboard onto an existing project
-- [x] Work in a collaborative manner, and enable quick incorporation of feedbacks
-- [x] Efficiently secure the software supply chain, catching vulnerabilities and non-compliant dependencies as they are introduced
-- [x] Automate versioning
-- [x] Automate releases
-- [x] Implement continuous deployment
+- [x] Rastrear trabalho no GitHub
+- [x] Integrar-se rapidamente a um projeto existente
+- [x] Trabalhar de maneira colaborativa e permitir a incorporação rápida de feedbacks
+- [x] Proteger eficientemente a cadeia de suprimentos de software, detectando vulnerabilidades e dependências não conformes à medida que são introduzidas
+- [x] Automatizar o versionamento
+- [x] Automatizar lançamentos
+- [x] Implementar implantação contínua
