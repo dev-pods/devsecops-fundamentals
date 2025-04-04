@@ -24,7 +24,7 @@ theme:
 
   favicon: assets/img/favicon.ico
 
-  locale: pt_BR
+  language: pt
 
   palette:
     # Palette toggle for automatic mode
@@ -62,7 +62,6 @@ theme:
 plugins:
   - search:
       lang: pt
-
   - minify:
       minify_html: true
 

@@ -1,322 +1,176 @@
 #!/usr/bin/env python3
-"""
-Script para traduzir arquivos Markdown do inglês para o português
-preservando formatações, links e elementos especiais.
-"""
-
 import os
-import re
+import json
+import shutil
+import subprocess
 import sys
-import argparse
-from pathlib import Path
-from translate import Translator
+import tempfile
 
-def safe_translate(text, translator, preserve_patterns=None):
+# Lista de traduções em português do Brasil
+TRANSLATIONS = {
+    "Search": "Pesquisar",
+    "Previous": "Anterior",
+    "Next": "Próximo",
+    "Home": "Início",
+    "Language": "Idioma",
+    "Edit on": "Editar no",
+    "Edit this page": "Editar esta página",
+    "Last update": "Última atualização",
+    "Table of Contents": "Índice",
+    "No results found": "Nenhum resultado encontrado",
+    "Search Results": "Resultados da pesquisa",
+    "Project information": "Informações do projeto",
+    "Repository": "Repositório",
+    "Version": "Versão",
+    "Build Date": "Data de compilação",
+    "Copyright": "Direitos autorais",
+    "Last updated on": "Última atualização em",
+    "Please activate JavaScript to enable the search functionality.": "Por favor, ative o JavaScript para habilitar a funcionalidade de pesquisa."
+}
+
+def create_translations():
     """
-    Traduz o texto preservando padrões específicos.
-    
-    Args:
-        text: Texto para traduzir
-        translator: Instância do tradutor
-        preserve_patterns: Lista de padrões regex para preservar
-        
-    Returns:
-        Texto traduzido com os padrões preservados
+    Cria ou atualiza os arquivos de tradução para o MkDocs Material
     """
-    if not text.strip():
-        return text
+    print("Criando traduções em português brasileiro para o MkDocs Material...")
     
-    # Identificadores para substituição temporária
-    placeholders = {}
-    counter = 0
-    
-    # Padrões a preservar
-    if preserve_patterns is None:
-        preserve_patterns = [
-            # Links Markdown
-            r'\[([^\]]+)\]\(([^)]+)\)',
-            # Código inline
-            r'`[^`]+`',
-            # Tags HTML
-            r'<[^>]+>',
-            # Emojis e ícones
-            r':[a-zA-Z0-9_-]+:',
-            # Referências de imagens Markdown
-            r'!\[[^\]]*\]\([^)]+\)',
-            # Formatação Markdown
-            r'\*\*[^*]+\*\*',  # negrito
-            r'\*[^*]+\*',      # itálico
-            r'~~[^~]+~~',      # tachado
-            # Marcadores e listas
-            r'^(\s*[-*+]\s+)',
-            r'^(\s*\d+\.\s+)',
-            # Variáveis e macros
-            r'\{\{[^}]+\}\}',
-            r'\{%[^%]+%\}',
-            # Admonições MkDocs Material
-            r'!!!.*',
-            # Comandos e variáveis específicas
-            r'\$[a-zA-Z0-9_]+',
-            # URLs
-            r'https?://[^\s)]+',
-            # Figuras Markdown
-            r'<figure.*?</figure>',
-            # Estilos inline
-            r'\{[^}]*\}',
-            # Elementos de classes e sintaxe especial do MkDocs
-            r'\{[.=].*?\}',
-            # Comentários HTML
-            r'<!--.*?-->',
-        ]
-    
-    # Salvar partes que não devem ser traduzidas
-    for pattern in preserve_patterns:
-        matches = re.finditer(pattern, text)
-        for match in matches:
-            placeholder = f"__PLACEHOLDER_{counter}__"
-            placeholders[placeholder] = match.group(0)
-            text = text.replace(match.group(0), placeholder)
-            counter += 1
-    
-    # Traduzir o texto
     try:
-        translated_text = translator.translate(text)
+        # Encontrar o caminho do pacote material
+        result = subprocess.run(
+            ["python3", "-c", "from importlib.metadata import distribution; print(distribution('mkdocs-material').locate_file('material'))"],
+            capture_output=True,
+            text=True,
+            check=False
+        )
+        
+        if result.returncode != 0:
+            print("Erro ao localizar o pacote mkdocs-material. Verificando instalação alternativa...")
+            result = subprocess.run(
+                ["find", "/usr", "-path", "*/site-packages/material", "-type", "d"],
+                capture_output=True,
+                text=True,
+                check=False
+            )
+            
+            if result.stdout.strip():
+                material_path = result.stdout.strip().split("\n")[0]
+            else:
+                print("Não foi possível encontrar o pacote material. O MkDocs Material está instalado?")
+                return False
+        else:
+            material_path = result.stdout.strip()
+        
+        print(f"Pacote material encontrado em: {material_path}")
+        
+        # Verificar se existe a pasta translations
+        translations_path = os.path.join(material_path, "translations")
+        if not os.path.exists(translations_path):
+            print(f"Pasta de traduções não encontrada em {translations_path}")
+            return False
+        
+        # Verificar se já existe a pasta pt_BR com o arquivo de tradução
+        pt_br_file = os.path.join(translations_path, "pt_BR.json")
+        
+        # Se não existir, criar
+        if os.path.exists(pt_br_file):
+            print(f"Arquivo de tradução existe em {pt_br_file}. Vamos adicionar as traduções faltantes.")
+            try:
+                with open(pt_br_file, 'r', encoding='utf-8') as f:
+                    existing_translations = json.load(f)
+                
+                # Adicionar traduções faltantes
+                was_updated = False
+                for key, value in TRANSLATIONS.items():
+                    if key not in existing_translations:
+                        existing_translations[key] = value
+                        was_updated = True
+                
+                if was_updated:
+                    # Criar um arquivo temporário primeiro
+                    with tempfile.NamedTemporaryFile('w', encoding='utf-8', delete=False) as tmp:
+                        json.dump(existing_translations, tmp, ensure_ascii=False, indent=2)
+                        tmp_path = tmp.name
+                    
+                    # Copiar para o destino final usando sudo se necessário
+                    try:
+                        shutil.copy2(tmp_path, pt_br_file)
+                        print(f"Adicionadas novas traduções ao arquivo {pt_br_file}")
+                    except PermissionError:
+                        print(f"Erro de permissão ao atualizar {pt_br_file}")
+                        print(f"Tente executar: sudo cp {tmp_path} {pt_br_file}")
+                        return False
+                    finally:
+                        os.unlink(tmp_path)
+                else:
+                    print("Nenhuma nova tradução para adicionar.")
+            except (json.JSONDecodeError, PermissionError) as e:
+                print(f"Erro ao ler ou atualizar o arquivo de tradução: {e}")
+                return False
+        else:
+            print(f"Criando novo arquivo de tradução em {pt_br_file}")
+            try:
+                # Criar um arquivo temporário primeiro
+                with tempfile.NamedTemporaryFile('w', encoding='utf-8', delete=False) as tmp:
+                    json.dump(TRANSLATIONS, tmp, ensure_ascii=False, indent=2)
+                    tmp_path = tmp.name
+                
+                # Copiar para o destino final usando sudo se necessário
+                try:
+                    shutil.copy2(tmp_path, pt_br_file)
+                    print(f"Arquivo de tradução criado em {pt_br_file}")
+                except PermissionError:
+                    print(f"Erro de permissão ao criar {pt_br_file}")
+                    print(f"Tente executar: sudo cp {tmp_path} {pt_br_file}")
+                    return False
+                finally:
+                    os.unlink(tmp_path)
+            except Exception as e:
+                print(f"Erro ao criar arquivo de tradução: {e}")
+                return False
+        
+        # Atualizar o arquivo mkdocs.yml se necessário
+        update_mkdocs_config()
+        
+        print("\nTraduções em português brasileiro configuradas com sucesso!")
+        print("Agora você pode executar 'mkdocs build' ou 'mkdocs serve' novamente")
+        print("para ver o site com as traduções em português.")
+        return True
     except Exception as e:
-        print(f"Erro ao traduzir: {e}")
-        return text
-    
-    # Restaurar as partes preservadas
-    for placeholder, original in placeholders.items():
-        translated_text = translated_text.replace(placeholder, original)
-    
-    return translated_text
+        print(f"Ocorreu um erro: {str(e)}")
+        return False
 
-def extract_codeblocks(content):
+def update_mkdocs_config():
     """
-    Extrai blocos de código do conteúdo e os substitui por placeholders.
-    
-    Args:
-        content: Conteúdo Markdown
-        
-    Returns:
-        Tupla com o conteúdo modificado e dicionário de blocos de código
+    Atualiza o arquivo mkdocs.yml para remover configurações de locale_dirs
+    que não são suportadas e garantir que o locale está configurado corretamente.
     """
-    # Regex para blocos de código
-    code_block_pattern = r'```[a-zA-Z0-9_]*\n[\s\S]*?```'
+    mkdocs_yml_path = "/workspaces/devsecops-fundamentals/mkdocs.yml"
     
-    # Encontrar todos os blocos de código
-    code_blocks = {}
-    counter = 0
-    
-    for match in re.finditer(code_block_pattern, content):
-        placeholder = f"__CODEBLOCK_{counter}__"
-        code_blocks[placeholder] = match.group(0)
-        content = content.replace(match.group(0), placeholder)
-        counter += 1
-    
-    return content, code_blocks
-
-def extract_frontmatter(content):
-    """
-    Extrai o frontmatter YAML (se existir) e o substitui por placeholder.
-    
-    Args:
-        content: Conteúdo Markdown
-        
-    Returns:
-        Tupla com o conteúdo modificado e o frontmatter
-    """
-    frontmatter_pattern = r'^---\n([\s\S]*?)\n---'
-    match = re.match(frontmatter_pattern, content)
-    
-    if match:
-        frontmatter = match.group(0)
-        content = content.replace(frontmatter, "__FRONTMATTER__")
-        return content, frontmatter
-    
-    return content, None
-
-def extract_html_comments(content):
-    """
-    Extrai comentários HTML e os substitui por placeholders.
-    
-    Args:
-        content: Conteúdo Markdown
-        
-    Returns:
-        Tupla com o conteúdo modificado e dicionário de comentários
-    """
-    comment_pattern = r'<!--[\s\S]*?-->'
-    
-    # Encontrar todos os comentários HTML
-    comments = {}
-    counter = 0
-    
-    for match in re.finditer(comment_pattern, content):
-        placeholder = f"__COMMENT_{counter}__"
-        comments[placeholder] = match.group(0)
-        content = content.replace(match.group(0), placeholder)
-        counter += 1
-    
-    return content, comments
-
-def extract_admonitions(content):
-    """
-    Extrai admonitions do MkDocs Material e os substitui por placeholders.
-    
-    Args:
-        content: Conteúdo Markdown
-        
-    Returns:
-        Tupla com o conteúdo modificado e dicionário de admonitions
-    """
-    # Regex para admonitions do MkDocs Material
-    admonition_pattern = r'!!!.*?\n(?:\s{4}.*?\n)+(?:\n|$)'
-    
-    # Encontrar todos os admonitions
-    admonitions = {}
-    counter = 0
-    
-    for match in re.finditer(admonition_pattern, content, re.MULTILINE):
-        placeholder = f"__ADMONITION_{counter}__"
-        admonitions[placeholder] = match.group(0)
-        content = content.replace(match.group(0), placeholder)
-        counter += 1
-    
-    return content, admonitions
-
-def translate_markdown_file(input_file, output_file, translator):
-    """
-    Traduz um arquivo Markdown preservando sua estrutura.
-    
-    Args:
-        input_file: Caminho do arquivo de entrada
-        output_file: Caminho do arquivo de saída
-        translator: Instância do tradutor
-    """
     try:
-        with open(input_file, 'r', encoding='utf-8') as f:
-            content = f.read()
+        with open(mkdocs_yml_path, "r", encoding="utf-8") as f:
+            config_content = f.read()
         
-        # Extrair frontmatter
-        content, frontmatter = extract_frontmatter(content)
-        
-        # Extrair blocos de código
-        content, code_blocks = extract_codeblocks(content)
-        
-        # Extrair comentários HTML
-        content, html_comments = extract_html_comments(content)
-        
-        # Extrair admonitions
-        content, admonitions = extract_admonitions(content)
-        
-        # Dividir o conteúdo em linhas
-        lines = content.split('\n')
-        
-        translated_lines = []
-        for line in lines:
-            # Pular linhas vazias
-            if not line.strip():
-                translated_lines.append(line)
-                continue
+        # Remover a linha locale_dirs que não é suportada
+        if "locale_dirs:" in config_content:
+            # Dividir o conteúdo em linhas para manipulação linha por linha
+            lines = config_content.split("\n")
+            filtered_lines = []
+            
+            for line in lines:
+                if "locale_dirs:" not in line:
+                    filtered_lines.append(line)
+            
+            updated_content = "\n".join(filtered_lines)
+            
+            # Escrever o arquivo atualizado
+            with open(mkdocs_yml_path, "w", encoding="utf-8") as f:
+                f.write(updated_content)
                 
-            # Verificar se é um cabeçalho
-            header_match = re.match(r'^(#+)\s+(.+)$', line)
-            if header_match:
-                prefix = header_match.group(1)
-                text = header_match.group(2)
-                translated_text = safe_translate(text, translator)
-                translated_lines.append(f"{prefix} {translated_text}")
-                continue
-            
-            # Verificar se é uma linha especial (HTML, frontmatter etc.)
-            if any(placeholder in line for placeholder in list(code_blocks.keys()) + 
-                   list(html_comments.keys()) + list(admonitions.keys())):
-                # Não traduzir se contém placeholder
-                translated_lines.append(line)
-                continue
-                
-            # Traduzir a linha normalmente
-            translated_line = safe_translate(line, translator)
-            translated_lines.append(translated_line)
-        
-        # Juntar as linhas traduzidas
-        translated_content = '\n'.join(translated_lines)
-        
-        # Restaurar os blocos de código
-        for placeholder, code_block in code_blocks.items():
-            translated_content = translated_content.replace(placeholder, code_block)
-        
-        # Restaurar os comentários HTML
-        for placeholder, comment in html_comments.items():
-            translated_content = translated_content.replace(placeholder, comment)
-            
-        # Restaurar os admonitions
-        for placeholder, admonition in admonitions.items():
-            translated_content = translated_content.replace(placeholder, admonition)
-        
-        # Restaurar o frontmatter
-        if frontmatter:
-            translated_content = translated_content.replace("__FRONTMATTER__", frontmatter)
-        
-        # Criar diretório de saída se não existir
-        os.makedirs(os.path.dirname(output_file), exist_ok=True)
-        
-        # Salvar o conteúdo traduzido
-        with open(output_file, 'w', encoding='utf-8') as f:
-            f.write(translated_content)
-            
-        print(f"✅ Arquivo traduzido: {output_file}")
-    
+            print(f"Arquivo {mkdocs_yml_path} atualizado: removida configuração locale_dirs")
     except Exception as e:
-        print(f"❌ Erro ao traduzir {input_file}: {e}")
-
-def translate_directory(input_dir, output_dir, to_lang='pt'):
-    """
-    Traduz todos os arquivos Markdown em um diretório e seus subdiretórios.
-    
-    Args:
-        input_dir: Diretório de entrada
-        output_dir: Diretório de saída
-        to_lang: Idioma para o qual traduzir
-    """
-    translator = Translator(to_lang=to_lang)
-    
-    for root, _, files in os.walk(input_dir):
-        for file in files:
-            if file.endswith('.md'):
-                # Construir caminhos
-                input_file = os.path.join(root, file)
-                rel_path = os.path.relpath(input_file, input_dir)
-                output_file = os.path.join(output_dir, rel_path)
-                
-                print(f"Traduzindo {rel_path}...")
-                translate_markdown_file(input_file, output_file, translator)
-
-def main():
-    parser = argparse.ArgumentParser(description='Traduz arquivos Markdown preservando elementos especiais.')
-    parser.add_argument('input', help='Arquivo ou diretório de entrada')
-    parser.add_argument('output', help='Arquivo ou diretório de saída')
-    parser.add_argument('--lang', default='pt', help='Idioma para tradução (padrão: pt)')
-    parser.add_argument('--retry', action='store_true', help='Tentar novamente arquivos já traduzidos')
-    
-    args = parser.parse_args()
-    
-    # Verificar se entrada existe
-    if not os.path.exists(args.input):
-        print(f"Erro: {args.input} não existe.")
-        return 1
-    
-    # Se for um diretório
-    if os.path.isdir(args.input):
-        translate_directory(args.input, args.output, args.lang)
-    else:
-        # Criar diretório de saída
-        os.makedirs(os.path.dirname(args.output), exist_ok=True)
-        translator = Translator(to_lang=args.lang)
-        translate_markdown_file(args.input, args.output, translator)
-    
-    return 0
+        print(f"Erro ao atualizar o arquivo mkdocs.yml: {e}")
 
 if __name__ == "__main__":
-    sys.exit(main())
+    success = create_translations()
+    if not success:
+        sys.exit(1)

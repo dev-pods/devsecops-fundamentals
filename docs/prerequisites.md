@@ -147,7 +147,7 @@ Você pode criar uma nova conta GitHub, se ainda não tiver uma. (1)
 
 ---
 
-## :material-numeric-6-circle: :octicons-project-16:{ .lg .middle } **Criar um quadro de projeto para o repositório**
+## :material-numeric-6-circle: :octicons-project-16:{ .lg .middle } **Criar um quadro de projeto para o repositório** {#criar-um-quadro-de-projeto-para-o-repositório}
 
 1. Abra o repositório do workshop recém-criado.
 
