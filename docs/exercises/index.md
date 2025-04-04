@@ -1,47 +1,47 @@
-# :fontawesome-solid-flask-vial: Introduction
+# :fontawesome-solid-flask-vial: Introdução
 
-!!! quote ":octicons-milestone-16: Workshop Exercises"
+!!! quote ":octicons-milestone-16: Exercícios do Workshop"
 
-    The workshop exercises provide guidance for implementing DevSecOps at the fundamental level with the GitHub platform. On completion, you would have gained the exposure to enable you seamlessly implement DevSecOps capabilities such as
+    Os exercícios do workshop fornecem orientações para implementar o DevSecOps em nível fundamental com a plataforma GitHub. Ao concluir, você terá adquirido a experiência para implementar facilmente as capacidades do DevSecOps, como:
 
-    - [x] Continuous collaboration
-    - [x] Continuous planning
-    - [x] Continuous integration
-    - [x] Continuous delivery
-    - [x] Continuous quality
-    - [x] Continuous security
+    - [x] Colaboração contínua
+    - [x] Planejamento contínuo
+    - [x] Integração contínua
+    - [x] Entrega contínua
+    - [x] Qualidade contínua
+    - [x] Segurança contínua
 
-    This workshop site also serves as the ***product*** we shall target for development. And During the course of the exercises, you will discover how you can rapidly build and test the site locally, and implement standardized tests to enable automated quality checks on the site.
+    Este site do workshop também serve como o ***produto*** que visaremos para desenvolvimento. Durante os exercícios, você descobrirá como pode construir e testar o site localmente de forma rápida e implementar testes padronizados para permitir verificações de qualidade automatizadas no site.
 
-    ---
+---
 
-    ## **:material-numeric-1-circle: Workshop Scenario**
+## **:material-numeric-1-circle: Cenário do Workshop**
 
-    You are working in a team that owns **_this_** site, and a new business goal has come into the vision of your organisation. In order to grow engagement with the site...
+Você está trabalhando em uma equipe que é proprietária **_deste_** site, e um novo objetivo de negócio surgiu na visão da sua organização. Para aumentar o engajamento com o site...
 
-    > _...the goal is to create a **Tetris Game** to delight our site visitors._
+> _...o objetivo é criar um **Jogo de Tetris** para encantar os visitantes do nosso site._
 
-    <figure markdown>
-        ![Tetris Game](../assets/img/tetris-game.png){ loading=lazy }
-        <figcaption>Outcome: Tetris Game</figcaption>
-    </figure>
+<figure markdown>
+    ![Jogo de Tetris](../assets/img/tetris-game.png){ loading=lazy }
+    <figcaption>Resultado: Jogo de Tetris</figcaption>
+</figure>
 
-    ---
+---
 
-    ## **:material-numeric-2-circle: Milestones**
+## **:material-numeric-2-circle: Marcos**
 
-    The workshop objectives will be delivered by completion of the following milestones
+Os objetivos do workshop serão entregues através da conclusão dos seguintes marcos
 
-    ![Milestones](../assets/img/milestones-start.png)
+![Marcos](../assets/img/milestones-start.png)
 
-    - [x] Collaborate
+- [x] Colaborar
 
-          Facilitate onboarding into the site project and enable project development at high velocity for stakeholders of different experience with the project.
+      Facilitar a integração no projeto do site e permitir o desenvolvimento do projeto em alta velocidade para partes interessadas com diferentes níveis de experiência com o projeto.
 
-    - [x] Secure the software supply chain
+- [x] Proteger a cadeia de suprimentos de software
 
-          Seamlessly implement application security and secure the software supply chain.
+      Implementar facilmente a segurança da aplicação e proteger a cadeia de suprimentos de software.
 
-    - [x] Automate Deployment of Releases
+- [x] Automatizar a Implantação de Lançamentos
 
-          Reliably deliver value to the end-user at high velocity.
+      Entregar valor ao usuário final de forma confiável e em alta velocidade.
